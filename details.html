@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="NovaPath — Technical details about ISS satellite tracking, Dwingeloo radio telescope, and software tools used.">
+    <title>NovaPath — Mission Details</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&family=Space+Mono&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/details.css">
+</head>
+
+<body>
+
+    <div class="starfield"></div>
+    <div class="nebula-bg"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <a href="index.html" class="nav-logo">NovaPath</a>
+            <button class="nav-hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="details.html" class="active">Details</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="page-content">
+        <div class="section-header">
+            <h1 class="glow-text">Mission Details</h1>
+            <div class="section-divider"></div>
+            <p>Technical specifications, equipment, and methodology behind the ISS signal tracking campaign.</p>
+        </div>
+
+        <div class="details-grid">
+
+            <!-- ISS Details -->
+            <section class="glass-card detail-section" id="iss-details">
+                <div class="icon-badge">🛰️</div>
+                <h3 class="glow-text">International Space Station (ISS)</h3>
+                <p>The ISS operates a cross-band repeater that relays amateur radio signals, enabling ground stations to
+                    communicate through the station as it passes overhead. The signal was tracked on the UHF downlink
+                    band.</p>
+
+                <div class="spec-grid">
+                    <div class="spec-item">
+                        <div class="spec-label">Frequency Range</div>
+                        <div class="spec-value">437.790 – 437.810 MHz</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Signal Type</div>
+                        <div class="spec-value">Sinusoidal Wave</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Mode</div>
+                        <div class="spec-value">Cross Repeater</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Tracking Period</div>
+                        <div class="spec-value">Jan 18 – Feb 12, 2026</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Total Recordings</div>
+                        <div class="spec-value">14 Passes</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Orbit Altitude</div>
+                        <div class="spec-value">~408 km</div>
+                    </div>
+                </div>
+
+                <div style="margin-top: var(--gap-lg);">
+                    <h4
+                        style="font-family: var(--font-display); font-size: 0.8rem; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: var(--gap-sm);">
+                        SIGNAL CHARACTERISTICS</h4>
+                    <ul>
+                        <li>The ISS cross-band repeater receives on 145.990 MHz (VHF uplink) and transmits on 437.800
+                            MHz (UHF downlink)</li>
+                        <li>Sinusoidal wave patterns are characteristic of the FM-modulated carrier signal received from
+                            the ISS transponder</li>
+                        <li>Doppler shift of approximately ±10 kHz observed as the ISS approaches and recedes,
+                            explaining the frequency variation between recordings (437.790 – 437.810 kHz)</li>
+                        <li>Signal passes typically last 5–10 minutes during optimal elevation angles above the
+                            station's horizon</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Dwingeloo Radio Telescope -->
+            <section class="glass-card detail-section" id="dwingeloo">
+                <div class="icon-badge">📡</div>
+                <h3 class="glow-text">Dwingeloo Radio Telescope</h3>
+                <p>The Dwingeloo Telescope is a historic 25-meter single-dish radio telescope located in Dwingeloo,
+                    Netherlands. Originally built in 1956, it was the largest radio telescope in the world at the time.
+                    Today it is operated by the <strong style="color: var(--accent-cyan);">CAMRAS</strong> foundation
+                    (C.A. Muller Radio Astronomy Station) as a volunteer-run facility.</p>
+
+                <div class="spec-grid">
+                    <div class="spec-item">
+                        <div class="spec-label">Dish Diameter</div>
+                        <div class="spec-value">25 meters</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Location</div>
+                        <div class="spec-value">Dwingeloo, NL</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Established</div>
+                        <div class="spec-value">1956</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Operator</div>
+                        <div class="spec-value">CAMRAS</div>
+                    </div>
+                </div>
+
+                <div style="margin-top: var(--gap-lg);">
+                    <ul>
+                        <li>Used as a WebSDR node, allowing anyone worldwide to tune into radio signals received by the
+                            telescope in real time</li>
+                        <li>Capable of receiving signals across a wide range of frequencies, including amateur satellite
+                            bands</li>
+                        <li>The recordings in this project were captured using the Dwingeloo WebSDR, tuned to the ISS
+                            UHF downlink frequency</li>
+                        <li>Coordinates: 52°49′19″N, 6°23′36″E</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Websites Used -->
+            <section class="glass-card detail-section" id="websites">
+                <div class="icon-badge">🌐</div>
+                <h3 class="glow-text">Websites & Online Tools</h3>
+                <p>Key web platforms used during the signal tracking campaign.</p>
+
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <h4>WebSDR.org</h4>
+                        <p>A Software-Defined Radio receiver connected to the internet, allowing multiple users to
+                            listen and tune independently. The Dwingeloo SDR at <strong>websdr.ewi.utwente.nl</strong>
+                            was the primary tool for real-time signal reception and recording.</p>
+                        <a href="http://websdr.org" target="_blank" rel="noopener" class="tool-link">websdr.org ↗</a>
+                    </div>
+                    <div class="tool-card">
+                        <h4>Morse Code Decoder</h4>
+                        <p>Online tool used to decode any Morse Code (CW) signals embedded in the ISS transmissions,
+                            helping identify callsigns and telemetry data transmitted through the cross-band repeater.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Software Used -->
+            <section class="glass-card detail-section" id="software">
+                <div class="icon-badge">💻</div>
+                <h3 class="glow-text">Software & Tools</h3>
+                <p>Desktop software used for signal analysis, audio processing, and satellite tracking.</p>
+
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <h4>Audacity</h4>
+                        <p>Open-source audio editing software used for rendering, filtering, and analyzing the recorded
+                            WebSDR audio files. Spectrograms helped visualize the sinusoidal signal patterns and
+                            Doppler-shifted carrier waves.</p>
+                        <a href="https://www.audacityteam.org" target="_blank" rel="noopener"
+                            class="tool-link">audacityteam.org ↗</a>
+                    </div>
+                    <div class="tool-card">
+                        <h4>Gpredict</h4>
+                        <p>Real-time satellite tracking and prediction software. Used to determine precise ISS pass
+                            times, elevation angles, and AOS/LOS (Acquisition/Loss of Signal) timing for scheduling
+                            recording sessions.</p>
+                        <a href="http://gpredict.oz9aec.net" target="_blank" rel="noopener"
+                            class="tool-link">gpredict.oz9aec.net ↗</a>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Music Toggle -->
+    <button class="music-toggle" id="music-toggle" aria-label="Toggle ambient music" title="Toggle ambient space music">
+        <div class="bars">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </button>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,186 @@
+/* ============================================
+   NovaPath — Navigation Bar
+   Collapsed by default, reveals on hover
+   ============================================ */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: 6px;
+    transition: height var(--duration-slow) var(--ease-out),
+        background var(--duration-slow) var(--ease-out),
+        backdrop-filter var(--duration-slow) var(--ease-out);
+    overflow: hidden;
+}
+
+/* Thin glow line when collapsed */
+.navbar::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            var(--nebula-purple) 20%,
+            var(--accent-cyan) 50%,
+            var(--nebula-purple) 80%,
+            transparent 100%);
+    opacity: 0.6;
+    transition: opacity var(--duration-normal) var(--ease-out);
+}
+
+/* Expanded state */
+.navbar:hover,
+.navbar.expanded {
+    height: 64px;
+    background: rgba(10, 10, 26, 0.85);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.navbar:hover::before,
+.navbar.expanded::before {
+    opacity: 0;
+}
+
+/* Inner container */
+.navbar-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--gap-xl);
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity var(--duration-normal) var(--ease-out) 0.1s,
+        transform var(--duration-normal) var(--ease-out) 0.1s;
+}
+
+.navbar:hover .navbar-inner,
+.navbar.expanded .navbar-inner {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Logo */
+.nav-logo {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, var(--nebula-light), var(--accent-cyan));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+/* Nav links */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-lg);
+    list-style: none;
+}
+
+.nav-links a {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: var(--gap-xs) var(--gap-sm);
+    position: relative;
+    transition: color var(--duration-fast) var(--ease-out);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--nebula-purple), var(--accent-cyan));
+    border-radius: 1px;
+    transition: width var(--duration-normal) var(--ease-out),
+        left var(--duration-normal) var(--ease-out);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--text-primary);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Mobile hamburger */
+.nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+    padding: 8px;
+    background: none;
+    border: none;
+}
+
+.nav-hamburger span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--text-primary);
+    border-radius: 1px;
+    transition: all var(--duration-normal) var(--ease-out);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .nav-hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: rgba(10, 10, 26, 0.95);
+        backdrop-filter: blur(24px);
+        padding: var(--gap-lg);
+        gap: var(--gap-md);
+        transform: translateY(-100%);
+        opacity: 0;
+        transition: all var(--duration-normal) var(--ease-out);
+        pointer-events: none;
+        border-bottom: 1px solid var(--glass-border);
+    }
+
+    .nav-links.mobile-open {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    .navbar:hover,
+    .navbar.expanded {
+        height: 64px;
+    }
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="NovaPath — Gallery of images from ISS satellite tracking and signal analysis sessions.">
+    <title>NovaPath — Gallery</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&family=Space+Mono&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/gallery.css">
+</head>
+
+<body>
+
+    <div class="starfield"></div>
+    <div class="nebula-bg"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <a href="index.html" class="nav-logo">NovaPath</a>
+            <button class="nav-hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="details.html">Details</a></li>
+                <li><a href="gallery.html" class="active">Gallery</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="page-content">
+        <div class="section-header">
+            <h1 class="glow-text">Gallery</h1>
+            <div class="section-divider"></div>
+            <p>Visual documentation from ISS tracking sessions — spectrograms, screenshots, and more.</p>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="gallery-grid" id="gallery-grid"></div>
+
+        <!-- Empty State -->
+        <div class="gallery-empty glass-card" id="gallery-empty" style="display: block;">
+            <div class="empty-icon">🔭</div>
+            <h3>No Images Yet</h3>
+            <p>The gallery is awaiting images. Add your spectrograms, tracking screenshots, and photos to the <code
+                    style="color: var(--accent-cyan); font-family: var(--font-mono); font-size: 0.85rem;">data/gallery/</code>
+                folder and update the manifest in <code
+                    style="color: var(--accent-cyan); font-family: var(--font-mono); font-size: 0.85rem;">js/audioData.js</code>.
+            </p>
+        </div>
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" aria-label="Close lightbox">✕</button>
+        <button class="lightbox-nav prev" aria-label="Previous image">‹</button>
+        <img src="" alt="">
+        <button class="lightbox-nav next" aria-label="Next image">›</button>
+    </div>
+
+    <!-- Music Toggle -->
+    <button class="music-toggle" id="music-toggle" aria-label="Toggle ambient music" title="Toggle ambient space music">
+        <div class="bars">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </button>
+
+    <script src="js/audioData.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/gallery.js"></script>
+</body>
+
+</html>

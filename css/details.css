@@ -1,0 +1,182 @@
+/* ============================================
+   NovaPath — Details Page
+   ISS, Dwingeloo, Tools, Software
+   ============================================ */
+
+.details-grid {
+    display: grid;
+    gap: var(--gap-xl);
+}
+
+/* Section cards */
+.detail-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.detail-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    border-radius: 2px;
+    background: linear-gradient(180deg, var(--nebula-purple), var(--accent-cyan));
+    opacity: 0;
+    transition: opacity var(--duration-normal) var(--ease-out);
+}
+
+.detail-section:hover::before {
+    opacity: 1;
+}
+
+.detail-section .icon-badge {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-md);
+    background: linear-gradient(135deg, rgba(123, 47, 247, 0.2), rgba(0, 212, 255, 0.1));
+    border: 1px solid rgba(123, 47, 247, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    margin-bottom: var(--gap-md);
+    transition: all var(--duration-normal) var(--ease-out);
+}
+
+.detail-section:hover .icon-badge {
+    box-shadow: var(--glow-purple);
+    transform: scale(1.05);
+}
+
+.detail-section h3 {
+    margin-bottom: var(--gap-md);
+    font-size: 1.3rem;
+}
+
+.detail-section p,
+.detail-section li {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    font-size: 0.95rem;
+}
+
+.detail-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.detail-section ul li {
+    padding: var(--gap-sm) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--gap-sm);
+}
+
+.detail-section ul li:last-child {
+    border-bottom: none;
+}
+
+.detail-section ul li::before {
+    content: '›';
+    color: var(--nebula-light);
+    font-weight: 700;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    margin-top: -1px;
+}
+
+/* Spec table */
+.spec-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--gap-md);
+    margin-top: var(--gap-md);
+}
+
+.spec-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    padding: var(--gap-md);
+    text-align: center;
+    transition: all var(--duration-normal) var(--ease-out);
+}
+
+.spec-item:hover {
+    border-color: rgba(0, 212, 255, 0.3);
+    box-shadow: var(--glow-cyan);
+}
+
+.spec-item .spec-label {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+}
+
+.spec-item .spec-value {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--accent-cyan);
+}
+
+/* Tool cards */
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: var(--gap-md);
+    margin-top: var(--gap-md);
+}
+
+.tool-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    padding: var(--gap-lg);
+    transition: all var(--duration-normal) var(--ease-out);
+}
+
+.tool-card:hover {
+    border-color: rgba(255, 215, 0, 0.3);
+    box-shadow: var(--glow-gold);
+    transform: translateY(-2px);
+}
+
+.tool-card h4 {
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    color: var(--accent-gold);
+    margin-bottom: var(--gap-sm);
+}
+
+.tool-card p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.tool-card .tool-link {
+    display: inline-block;
+    margin-top: var(--gap-sm);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent-cyan);
+    border-bottom: 1px dashed rgba(0, 212, 255, 0.3);
+    padding-bottom: 2px;
+}
+
+@media (max-width: 768px) {
+    .spec-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .tools-grid {
+        grid-template-columns: 1fr;
+    }
+}
