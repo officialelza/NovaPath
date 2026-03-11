@@ -405,13 +405,17 @@ function showDayModal(index) {
         ? TRANSCRIPTION_DATA[index] : null;
 
     if (transEntry) {
-        fetch(`data/transcription/${transEntry.file}`)
+        fetch(`data/transcription/${transEntry.file}?v=${Date.now()}`)
             .then(res => {
                 if (res.ok) return res.text();
                 throw new Error('Not found');
             })
             .then(text => {
-                transBox.innerHTML = `<p>${text.replace(/\n/g, '<br>')}</p>`;
+                if (!text || text.trim() === '') {
+                    transBox.innerHTML = '<p class="pending">Transcription pending…</p>';
+                } else {
+                    transBox.innerHTML = `<p>${text.replace(/\n/g, '<br>')}</p>`;
+                }
             })
             .catch(() => {
                 transBox.innerHTML = '<p class="pending">Transcription pending…</p>';
