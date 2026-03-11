@@ -153,12 +153,12 @@ const TRANSCRIPTION_DATA = [
   { file: "transcription_2026-01-21.txt", caption: "Jan 21 — Transcription" },
   { file: "transcription_2026-01-23.txt", caption: "Jan 23 — Transcription" },
   { file: "transcription_2026-01-24.txt", caption: "Jan 24 — Transcription" },
-  { file: "transcription_2026-01-25_16_07_04.txt", caption: "Jan 25 — Transcription" },
-  { file: "transcription_2026-01-26_16_58_44.txt", caption: "Jan 26 — Transcription" },
-  { file: "transcription_2026-01-27_14_34_15.txt", caption: "Jan 27 (a) — Transcription" },
-  { file: "transcription_2026-01-27_16_11_16.txt", caption: "Jan 27 (b) — Transcription" },
-  { file: "transcription_2026-01-28_15_27_58.txt", caption: "Jan 28 (a) — Transcription" },
-  { file: "transcription_2026-01-28_17_00_37.txt", caption: "Jan 28 (b) — Transcription" },
-  { file: "transcription_2026-01-29_14_38_50.txt", caption: "Jan 29 — Transcription" },
-  { file: "transcription_2026-02-12_06_55_36.txt", caption: "Feb 12 — Transcription" }
+  { file: "transcription_2026-01-25.txt", caption: "Jan 25 — Transcription" },
+  { file: "transcription_2026-01-26.txt", caption: "Jan 26 — Transcription" },
+  { file: "transcription_2026-01-27_1.txt", caption: "Jan 27 (a) — Transcription" },
+  { file: "transcription_2026-01-27_2.txt", caption: "Jan 27 (b) — Transcription" },
+  { file: "transcription_2026-01-28.txt", caption: "Jan 28 (a) — Transcription" },
+  { file: "transcription_2026-01-28_2.txt", caption: "Jan 28 (b) — Transcription" },
+  { file: "transcription_2026-01-29.txt", caption: "Jan 29 — Transcription" },
+  { file: "transcription_2026-02-12.txt", caption: "Feb 12 — Transcription" }
 ];
